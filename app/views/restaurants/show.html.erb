@@ -1,0 +1,13 @@
+<h1>Restaurant <%= @restaurant.name %></h1>
+<p>It speciality is <%= @restaurant.category.upcase %> </p>
+<p>You can find it in <%= @restaurant.address.upcase %></p>
+
+<p><%= link_to "Back to Restaurants List", restaurants_path %></p>
+<p><strong>Reviews</strong></p>
+ <%= link_to "Add Review", new_restaurant_review_path(@restaurant) %>
+<ul class="list-group">
+  <% @restaurant.reviews.each do |review|  %>
+    <li class="list-group-item"><%= review.content %></li>
+    <% end  %>
+ </ul>
+ <hr>
